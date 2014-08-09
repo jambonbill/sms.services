@@ -1,0 +1,39 @@
+String[] sujets = {
+ "Le pape", "Ma mere", "Ton père","Ton meilleur ami","Le type à côté de toi","Ton voisin", "Le monde", "La mer" };
+String[] verbes = {
+ "est","","n'est plus","devient", "semble","a cessé d'être","sera demain","trouvera" };
+String[] complements = {
+ "un salaud","un chic type","hostile","ton meilleur ami","ton seul choix","ta seule famille","la mort","une feuille","un logiciel" };
+PFont mapolice;
+
+void setup(){
+ size(700,200);
+ // declarer la police auparavant créée avec l'outil de processing (tools/create font...)
+ mapolice = loadFont("DIN-Light-48.vlw");
+ textFont(mapolice,24);
+ textAlign(CENTER);
+ smooth();
+ fill(255);
+}
+
+void draw(){
+ background(0);
+ // choisir un sujet
+ float alea=random(0,sujets.length);
+ int lesujet=int(alea);
+
+ // choisir un verbe
+ alea=random(0,verbes.length);
+ int leverbe=int(alea);
+
+ // choisir un verbe
+ alea=random(0,complements.length);
+ int lecomplement=int(alea);
+
+ // assembler le tout et afficher
+ String lasentence=sujets[lesujet] + " " + verbes[leverbe] + " " + complements[lecomplement];
+ text(lasentence, width/2, 100);
+
+ // une pause pour lire la phrase
+ delay(3000);
+}
